@@ -128,30 +128,42 @@ app.use(authenticateToken);
 
 // ================= MongoDB Connection & Seeding =================
 
-mongoose
-  .connect(MONGODB_URI)
-  .then(async () => {
+let isConnected = false;
+async function connectDB() {
+  if (mongoose.connection.readyState === 1) return;
+  if (!isConnected) {
+    await mongoose.connect(MONGODB_URI);
+    isConnected = true;
     console.log('✅ เชื่อมต่อ MongoDB Atlas ฐานข้อมูล [shop] สำเร็จ!');
 
     // Check & Seed Admin if not exists
-    const adminExists = await UserModel.findOne({ role: 'admin' });
-    if (!adminExists) {
-      const hashedPassword = await bcrypt.hash('1234', 10);
-      await UserModel.create({
-        id: 'USR-88291024',
-        email: 'admin@muesong.com',
-        password: hashedPassword,
-        name: 'ผู้ดูแลระบบ (Admin)',
-        role: 'admin',
-        phone: '+66899999999',
-        address: 'สำนักงานใหญ่ มือสองShop'
-      });
-      console.log('🌱 สร้างบัญชีแอดมินเริ่มต้น admin@muesong.com / 1234 สำเร็จ!');
-    }
-  })
-  .catch(err => {
-    console.error('❌ MongoDB Atlas Error:', err.message);
-  });
+    try {
+      const adminExists = await UserModel.findOne({ role: 'admin' });
+      if (!adminExists) {
+        const hashedPassword = await bcrypt.hash('1234', 10);
+        await UserModel.create({
+          id: 'USR-88291024',
+          email: 'admin@muesong.com',
+          password: hashedPassword,
+          name: 'ผู้ดูแลระบบ (Admin)',
+          role: 'admin',
+          phone: '+66899999999',
+          address: 'สำนักงานใหญ่ มือสองShop'
+        });
+        console.log('🌱 สร้างบัญชีแอดมินเริ่มต้น admin@muesong.com / 1234 สำเร็จ!');
+      }
+    } catch (e) {}
+  }
+}
+
+connectDB().catch(err => console.error('❌ MongoDB Atlas Error:', err.message));
+
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+  } catch (e) {}
+  next();
+});
 
 // ================= Endpoints =================
 
@@ -426,6 +438,10 @@ app.delete('/api/users/:id', requireAdmin, async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Secure Backend API Server รันอยู่ที่ http://localhost:${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🚀 Secure Backend API Server รันอยู่ที่ http://localhost:${PORT}`);
+  });
+}
+
+export default app;
