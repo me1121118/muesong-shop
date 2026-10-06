@@ -380,6 +380,18 @@ export default function App() {
     addToast(`เพิ่มสินค้า "${newProd.name}" เข้าสู่ระบบสำเร็จ`, 'success');
   };
 
+  const handleUpdateProduct = async (updatedProd) => {
+    try {
+      await api.updateProduct(updatedProd.id, updatedProd);
+    } catch (e) {
+      console.error(e);
+    }
+    setProducts(prev =>
+      prev.map(p => (p.id === updatedProd.id || p._id === updatedProd.id) ? { ...p, ...updatedProd } : p)
+    );
+    addToast(`บันทึกการแก้ไข "${updatedProd.name}" สำเร็จ`, 'success');
+  };
+
   return (
     <div className="min-h-screen bg-[#f3f4f6] text-gray-800 flex flex-col font-sans">
       {/* Top Header */}
@@ -555,6 +567,7 @@ export default function App() {
                 products={products}
                 onDeleteProduct={handleDeleteProduct}
                 onAddProduct={handleAddProduct}
+                onUpdateProduct={handleUpdateProduct}
               />
             )}
 
