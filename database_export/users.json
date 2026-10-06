@@ -1,0 +1,60 @@
+[
+  {
+    "_id": "6ac3b9dd452fe54ae26e34a8",
+    "id": "USR-88291024",
+    "email": "admin@muesong.com",
+    "name": "ผู้ดูแลระบบ (Admin)",
+    "role": "admin",
+    "phone": "+66899999999",
+    "address": "สำนักงานใหญ่ มือสองShop",
+    "orderHistoryCode": "-"
+  },
+  {
+    "_id": "6ac3b9dd452fe54ae26e34a9",
+    "id": "USR-88291024",
+    "name": "สมชาย มั่นใจดี",
+    "username": "somchai_m",
+    "phone": "+66812345678",
+    "address": "123/45 ถนนสุขุมวิท แขวงคลองเตย เขตคลองเตย กรุงเทพมหานคร 10110",
+    "orderHistoryCode": "ORD-2026-9901",
+    "role": "user",
+    "email": "somchai_m@email.com"
+  },
+  {
+    "_id": "6ac3b9dd452fe54ae26e34aa",
+    "id": "USR-88291025",
+    "name": "กมลชนก รักดี",
+    "username": "kamon_rd",
+    "phone": "+66898765432",
+    "address": "88/9 หมู่ 4 ต.สุเทพ อ.เมือง จ.เชียงใหม่ 50200",
+    "orderHistoryCode": "-",
+    "role": "user",
+    "email": "kamon_rd@email.com"
+  },
+  {
+    "_id": "6ac3c40e5adb7f3b3367ad89",
+    "id": "USR-46997617",
+    "email": "somchai@email.com",
+    "password": "$2b$10$ZK5S3JTiSs7XBYzrG38ryeh9tJa9XncssbjyE/ORpUbELxSV76hOm",
+    "name": "somchai",
+    "role": "user",
+    "phone": "",
+    "address": "",
+    "orderHistoryCode": "-",
+    "createdAt": "2026-10-05T15:36:46.473Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ac3c46f0e332860d766f90f",
+    "id": "USR-46499966",
+    "email": "somchai@gmail.com",
+    "password": "$2b$10$pKSuR6HT7y8ID/RaGb9VpeOkj.cm4TN5M74Zb0wQhbt51iIzZatqq",
+    "name": "somchai",
+    "role": "user",
+    "phone": "",
+    "address": "",
+    "orderHistoryCode": "-",
+    "createdAt": "2026-10-05T15:38:23.667Z",
+    "__v": 0
+  }
+]

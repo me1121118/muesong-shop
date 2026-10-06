@@ -1,0 +1,19 @@
+[
+  {
+    "_id": "6ac3b9dd452fe54ae26e34ab",
+    "id": "ORD-2026-9901",
+    "code": "ORD-2026-9901",
+    "productId": "A0184613",
+    "productName": "Huawei Pura 90s Pro Max",
+    "productCode": "A0184613",
+    "price": 30990,
+    "productImage": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&auto=format&fit=crop&q=80",
+    "buyerName": "สมชาย มั่นใจดี",
+    "buyerCode": "USR-88291024",
+    "phone": "+66812345678",
+    "address": "123/45 ถนนสุขุมวิท แขวงคลองเตย เขตคลองเตย กรุงเทพมหานคร 10110",
+    "status": "รอจัดส่ง",
+    "hasReceiptQR": true,
+    "specsSummary": "CPU: Kirin 9030S | Ram: 12GB | Rom: 512GB | Battery: 6000mAh"
+  }
+]
